@@ -11,11 +11,12 @@ from mixedsignals.utils.o3d_viz_utils import PointPainter
 from mixedsignals.utils.bbox_utils import get_boxes_vertices_coord
 
 
-def main(chosen_sequence_index: int = 20, 
+def main(dataset_root: str,
+         chosen_sequence_index: int = 20, 
          len_traj: int = 2):
     print(f'showing aggregate pc of sequence {chosen_sequence_index} in TOP frame')
 
-    msig = MixedSignalsExplorer('data/mixed-signals-mini', verbose=False)
+    msig = MixedSignalsExplorer(dataset_root, verbose=False)
     seq_exist_cavs = msig.return_name_cavs_in_seq(chosen_sequence_index)
     print(f"name CAVs in sequecne {chosen_sequence_index}: {seq_exist_cavs}")
 
@@ -125,11 +126,13 @@ def main(chosen_sequence_index: int = 20,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="visualize track")
+    parser.add_argument('--dataset_root', type=str, default='data/mixed-signals-mini', 
+                        help='index of the sequence chosen for visualization')
     parser.add_argument('--seq_idx', type=int, default=20, 
                         help='index of the sequence chosen for visualization')
     
     parser.add_argument('--len_traj', type=int, default=5, 
                         help='number of boxes inisde each traj to be shown')
     args = parser.parse_args()
-    main(args.seq_idx, args.len_traj)
+    main(args.dataset_root, args.seq_idx, args.len_traj)
 

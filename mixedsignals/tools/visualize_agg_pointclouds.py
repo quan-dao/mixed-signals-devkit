@@ -8,13 +8,13 @@ from mixedsignals.utils.geometry import apply_se3_, apply_se3
 from mixedsignals.utils.o3d_viz_utils import PointPainter
 
 
-def main(data_root: str,
+def main(dataset_root: str,
          chosen_sequence_index: int = 18, 
          labeled_frame_idx: int = 0):
     
     print(f'showing aggregate pc of sequence {chosen_sequence_index} in TOP frame')
 
-    msig = MixedSignalsExplorer(data_root, verbose=True)
+    msig = MixedSignalsExplorer(dataset_root, verbose=True)
     seq_exist_cavs = msig.return_name_cavs_in_seq(chosen_sequence_index)
     print(f"name CAVs in sequecne {chosen_sequence_index}: {seq_exist_cavs}")
 
@@ -55,11 +55,11 @@ def main(data_root: str,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="visualize 1 early fusion point cloud & ground truth")
-    parser.add_argument('--data_root', type=str, default='data/mixed-signals-mini', 
+    parser.add_argument('--dataset_root', type=str, default='data/mixed-signals-mini', 
                         help='index of the sequence chosen for visualization')
     parser.add_argument('--seq_idx', type=int, default=20, 
                         help='index of the sequence chosen for visualization')
     parser.add_argument('--time_idx', type=int, default=0, 
                         help='index of time step of the sequence chosen for visualization')
     args = parser.parse_args()
-    main(args.data_root, args.seq_idx, args.time_idx)
+    main(args.dataset_root, args.seq_idx, args.time_idx)

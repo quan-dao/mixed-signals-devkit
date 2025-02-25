@@ -37,7 +37,7 @@ Visualize point clouds in 1 data sample
 ```bash
 cd mixedsignals
 
-python mixedsignals/tools/visualize_agg_pointclouds.py
+python mixedsignals/tools/visualize_agg_pointclouds.py --data_root <path_to_dataset_root> --seq_idx <index_of_a_sequence_to_visualize>
 ```
 
 expected result:
@@ -52,5 +52,5 @@ Visualize tracks in 1 sequence
 ```bash
 cd mixedsignals
 
-python mixedsignals/tools/visualize_tracks.py
+python mixedsignals/tools/visualize_tracks.py --data_root <path_to_dataset_root> --seq_idx <index_of_a_sequence_to_visualize>
 ```
