@@ -6,8 +6,8 @@ setup(
     description='devkit of Mixed Signals dataset',
     license='MIT',
     packages=['mixedsignals'],
-    author='annonymous',
-    author_email='annonymous@annonymous.com',
+    author='Katie Luo, Minh-Quan Dao, Zhenzhen Liu, Julie Stephany Berrio Perez, et al',
+    author_email='minh-quan.dao@inria.fr',
     keywords=['v2x dataset'],
     url=''
 )
